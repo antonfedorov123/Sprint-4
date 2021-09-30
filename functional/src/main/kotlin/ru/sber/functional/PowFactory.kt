@@ -11,5 +11,4 @@ object PowFactory {
         result
     }
 
-
 }
