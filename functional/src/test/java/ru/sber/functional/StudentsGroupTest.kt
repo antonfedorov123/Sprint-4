@@ -8,9 +8,7 @@ class StudentsGroupTest {
     @Test
     fun initTest() {
 
-        val group = StudentsGroup()
-
-        group.init(
+        val group = StudentsGroup().init(
             { Student(firstName = "Незнайка", lastName = "", averageRate = 2.0) },
             { Student(firstName = "Винтик",   lastName = "", averageRate = 5.0, specialization = "Весёлый механик", age = 10)  },
             { Student(firstName = "Шпунтик",  lastName = "", averageRate = 5.0, specialization = "Весёлый механик", city = "Москва") },
