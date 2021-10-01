@@ -8,11 +8,13 @@ import java.util.*
 // 1.
 fun getZonesWithNonDivisibleByHourOffset(): Set<String> = ZoneId
     .getAvailableZoneIds()
+    .asSequence()
     .filter { ZonedDateTime.now(ZoneId.of(it)).minute != ZonedDateTime.now(ZoneId.of("UTC")).minute }
     .toSet()
 
 // 2.
 fun getLastInMonthDayWeekList(year: Int): List<String> = Month.values()
+    .asSequence()
     .map { month ->
         LocalDateTime
             .of(year, month, 1, 0, 0)
@@ -20,7 +22,9 @@ fun getLastInMonthDayWeekList(year: Int): List<String> = Month.values()
     }.toList()
 
 // 3.
-fun getNumberOfFridayThirteensInYear(year: Int): Int = Month.values().count {
+fun getNumberOfFridayThirteensInYear(year: Int): Int = Month.values()
+    .asSequence()
+    .count {
     LocalDateTime
         .of(year, it, 13, 0, 0)
         .dayOfWeek == DayOfWeek.FRIDAY
